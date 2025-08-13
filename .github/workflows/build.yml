@@ -1,0 +1,40 @@
+name: Build Firmware
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  BUILD_DIR: build
+  TARGET: firmware
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Install ARM Toolchain
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y gcc-arm-none-eabi
+        
+    - name: Create build directory
+      run: mkdir -p ${{ env.BUILD_DIR }}
+      
+    - name: Build firmware
+      run: |
+        make all
+        
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: firmware
+        path: |
+          ${{ env.BUILD_DIR }}/${{ env.TARGET }}.elf
+          ${{ env.BUILD_DIR }}/${{ env.TARGET }}.bin
+          ${{ env.BUILD_DIR }}/${{ env.TARGET }}.map

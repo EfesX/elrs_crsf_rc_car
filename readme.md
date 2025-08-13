@@ -1,4 +1,5 @@
 # RC CAR
+[![build](https://github.com/EfesX/elrs_crsf_rc_car/actions/workflows/build.yml/badge.svg)](https://github.com/EfesX/elrs_crsf_rc_car/actions/workflows/build.yml)
 
 ## Components
 - BluePill DevBoard
