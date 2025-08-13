@@ -1,0 +1,8 @@
+#pragma once
+
+#define FREQ_CPU 72000000
+#define CRSF_RX_TIMEOUT_MS 100
+
+#define LED_ON()  GPIOC->ODR &= ~GPIO_ODR_ODR13
+#define LED_OFF() GPIOC->ODR |=  GPIO_ODR_ODR13
+#define LED_TOGGLE() GPIOC->ODR ^= GPIO_ODR_ODR13
