@@ -1,6 +1,12 @@
 # RC CAR
 
-## PINOUT
+## Components
+- BluePill DevBoard
+- ELRS receiver
+- Camera
+- Analog Video Transmitter
+
+## Pinout
 - PA10 - GPS  UART TX (MCU RX)
 - PB7  - GPS  I2C  SDA
 - PB6  - GPS  I2C  SCL
